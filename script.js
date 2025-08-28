@@ -26,4 +26,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 hero.innerHTML = '<p>Error loading images. Please try again later.</p>';
             }
         });
+
+    const tiles = document.querySelectorAll('.tile');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    tiles.forEach(tile => {
+        observer.observe(tile);
+    });
 });
