@@ -41,4 +41,25 @@ document.addEventListener('DOMContentLoaded', function() {
     tiles.forEach(tile => {
         observer.observe(tile);
     });
+
+    const characterGallery = document.querySelector('.character-gallery');
+    const creditsUrl = `https://api.themoviedb.org/3/tv/${tvId}/credits?api_key=${apiKey}`;
+
+    if (characterGallery) {
+        fetch(creditsUrl)
+            .then(response => response.json())
+            .then(data => {
+                const cast = data.cast.slice(0, 5); // Get top 5 cast members
+                cast.forEach(member => {
+                    if (member.profile_path) {
+                        const img = document.createElement('img');
+                        img.src = `https://image.tmdb.org/t/p/w185${member.profile_path}`;
+                        img.alt = member.name;
+                        img.title = `${member.name} as ${member.character}`;
+                        characterGallery.appendChild(img);
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching credits:', error));
+    }
 });
