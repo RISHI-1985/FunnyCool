@@ -10,7 +10,7 @@ body, html {
 }
 
 #hero {
-    height: 100vh;
+    flex-grow: 1;
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
@@ -60,12 +60,24 @@ body, html {
     }
 }
 
+.split-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+header {
+    flex: 2; /* Takes up 2/5 of the space */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 main {
+    flex: 3; /* Takes up 3/5 of the space */
     padding: 50px 20px;
-    max-width: 900px;
-    margin: auto;
-    position: relative;
-    z-index: 2;
+    overflow-y: auto;
 }
 
 .tiles-container {
@@ -201,7 +213,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #hero {
+    .split-container {
+        flex-direction: column;
+    }
+
+    header {
+        position: static;
         height: 60vh;
     }
 
