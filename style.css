@@ -212,7 +212,144 @@ footer {
     transform: scale(1.1);
 }
 
+nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: #9B30FF;
+    color: #fff;
+}
+
+.teaser-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.teaser-link {
+    display: inline-block;
+    align-self: flex-end;
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-family: 'Creepster', cursive;
+    font-size: 1.1em;
+    color: #e0e0e0;
+    background-color: #8A2BE2;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.teaser-link:hover {
+    background-color: #9932CC;
+    transform: scale(1.05);
+}
+
+.news-article {
+    margin-bottom: 20px;
+}
+
+.news-article h3 {
+    font-family: 'Creepster', cursive;
+    color: #9B30FF;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.news-date {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.news-source {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #9B30FF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-source:hover {
+    text-decoration: underline;
+}
+
+/* Cast Page Styles */
+.cast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.cast-card {
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cast-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(200, 200, 200, 0.15);
+}
+
+.cast-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cast-card-content {
+    padding: 20px;
+}
+
+.cast-card-content h3 {
+    font-family: 'Creepster', cursive;
+    color: #EAEAEA;
+    font-size: 2em;
+    margin: 0 0 5px 0;
+}
+
+.actor-name {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 5px;
+        top: 10px;
+        left: 10px;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        padding: 5px 10px;
+    }
+
     .split-container {
         flex-direction: column;
     }
